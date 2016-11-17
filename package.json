@@ -1,0 +1,17 @@
+{
+  "name": "timezone",
+  "version": "1.0.0",
+  "description": "Timezone application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "lola akinleye",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "gulp": "^3.9.1",
+    "gulp-sass": "^2.3.2",
+    "pug": "^2.0.0-beta6"
+  }
+}

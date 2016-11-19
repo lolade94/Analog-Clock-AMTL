@@ -1,14 +1,18 @@
 window.onload = function () {
+
+      //Every second call showClock()
        setInterval(showClock, 1000);
 
        function showClock() {
 
            // DEFINE CANVAS AND ITS CONTEXT.
            var canvas = document.getElementById('canvas');
+          //Create 2-D surface
            var ctx = canvas.getContext('2d');
-
+         
+            
            var date = new Date();
-
+           //Current Time
            document.getElementById('date').innerHTML = date.getHours() + ":" + date.getMinutes() +":" + date.getSeconds();
            var angle;
            var secHandLength = 60;
@@ -24,7 +28,7 @@ window.onload = function () {
           showMinutes();
           showHours();
 
-
+          //Draw the border
           function outerDial2(){
             ctx.beginPath();
             ctx.arc(canvas.width/2, canvas.height/2, secHandLength + 17, 0, Math.PI * 2);
@@ -33,7 +37,8 @@ window.onload = function () {
             ctx.fillStyle = "rgba(255, 255, 255, " + r_a + ")"
             ctx.stroke();
           }
-
+         
+         //Draw the center 
           function centerDial(){
              ctx.beginPath();
              ctx.arc(canvas.width/2, canvas.height/2, 2, 0, Math.PI * 2);
@@ -42,6 +47,8 @@ window.onload = function () {
              ctx.strokeStyle ='#828A95';
              ctx.stroke();
           }
+
+           //Mark ticks for each hour
 
           function markHours(){
             for (var i = 0; i < 12; i++) {
@@ -62,12 +69,13 @@ window.onload = function () {
           }
         }
 
+//Mark Seconds
           function markSeconds(){
             for (var i=0; i<60; i++){
               angle = (i-3) * (Math.PI * 2)/60; //the angle to mark
               ctx.lineWidth =1; //Hand width
               ctx.beginPath();
-
+ 
               var x1 = (canvas.width/2) + Math.cos(angle) * (secHandLength);
               var y1 = (canvas.height/2) + Math.sin(angle) * (secHandLength);
               var x2 = (canvas.width/2) + Math.cos(angle) * (secHandLength -(secHandLength/30));
